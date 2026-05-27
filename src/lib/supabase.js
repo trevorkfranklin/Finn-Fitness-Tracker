@@ -6,7 +6,7 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 export const isConfigured = Boolean(supabaseUrl && supabaseAnonKey);
 
 export const supabase = createClient(
-  supabaseUrl ?? '',
-  supabaseAnonKey ?? '',
+  supabaseUrl || 'https://placeholder.supabase.co',
+  supabaseAnonKey || 'placeholder-key',
   { auth: { persistSession: false } }
 );
