@@ -107,7 +107,7 @@ function SetupScreen({ onComplete }) {
   const steps = [
     {
       heading: 'WELCOME TO',
-      subheading: 'FINN'S FITNESS TRACKER',
+      subheading: "FINN'S FITNESS TRACKER",
       body: 'Your personal football training app. Built for the linemen who do the dirty work and make every play possible.',
       cta: "LET'S GO!",
     },
