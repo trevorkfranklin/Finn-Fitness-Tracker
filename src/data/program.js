@@ -1,14 +1,25 @@
-// Day of week to workout type mapping
-// 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat
-export const DAY_WORKOUT_MAP = {
-  0: 'rest',
-  1: 'lower-body',
-  2: 'upper-push',
-  3: 'conditioning',
-  4: 'upper-pull',
-  5: 'full-body-power',
-  6: 'active-recovery',
-};
+// Per-week workout schedule — each week has a different rotation so no two weeks feel the same.
+// Index: [weekIndex 0-8][dayOfWeek 0-6]  (0=Sun always rest, 6=Sat always active-recovery)
+export const WEEKLY_SCHEDULES = [
+  // Wk 1 — Foundation
+  ['rest', 'lower-body',     'upper-push',      'conditioning',    'upper-pull',      'full-body-power', 'active-recovery'],
+  // Wk 2 — Foundation
+  ['rest', 'upper-push',     'conditioning',    'lower-body',      'full-body-power', 'upper-pull',      'active-recovery'],
+  // Wk 3 — Foundation
+  ['rest', 'upper-pull',     'full-body-power', 'upper-push',      'conditioning',    'lower-body',      'active-recovery'],
+  // Wk 4 — Build
+  ['rest', 'conditioning',   'lower-body',      'full-body-power', 'upper-push',      'upper-pull',      'active-recovery'],
+  // Wk 5 — Build
+  ['rest', 'full-body-power','upper-pull',      'lower-body',      'upper-push',      'conditioning',    'active-recovery'],
+  // Wk 6 — Build
+  ['rest', 'lower-body',     'conditioning',    'upper-pull',      'full-body-power', 'upper-push',      'active-recovery'],
+  // Wk 7 — Power
+  ['rest', 'upper-push',     'lower-body',      'full-body-power', 'conditioning',    'upper-pull',      'active-recovery'],
+  // Wk 8 — Power
+  ['rest', 'full-body-power','upper-push',      'upper-pull',      'lower-body',      'conditioning',    'active-recovery'],
+  // Wk 9 — Power
+  ['rest', 'conditioning',   'full-body-power', 'lower-body',      'upper-pull',      'upper-push',      'active-recovery'],
+];
 
 // phase: 1=Foundation(wks1-3), 2=Build(wks4-6), 3=Power(wks7-9)
 const getSets = (phase, base) => base + (phase >= 2 ? 1 : 0);

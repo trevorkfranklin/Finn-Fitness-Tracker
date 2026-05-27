@@ -1,4 +1,4 @@
-import { DAY_WORKOUT_MAP, WORKOUT_TEMPLATES } from '../data/program.js';
+import { WEEKLY_SCHEDULES, WORKOUT_TEMPLATES } from '../data/program.js';
 
 export const PROGRAM_START = new Date('2026-05-27');
 export const PROGRAM_END = new Date('2026-07-31');
@@ -36,7 +36,8 @@ export function getProgramProgress(date = new Date()) {
 export function getWorkoutForDate(date = new Date()) {
   const progress = getProgramProgress(date);
   const dayOfWeek = date.getDay();
-  const workoutType = DAY_WORKOUT_MAP[dayOfWeek] || 'rest';
+  const weekIndex = Math.min(Math.max((progress.weekNumber || 1) - 1, 0), WEEKLY_SCHEDULES.length - 1);
+  const workoutType = WEEKLY_SCHEDULES[weekIndex][dayOfWeek] || 'rest';
   const phase = progress.phase || 1;
 
   const template = WORKOUT_TEMPLATES[workoutType];
