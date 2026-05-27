@@ -7,6 +7,7 @@ import {
   saveWorkoutLog,
   saveProfile,
   getPersonalBests,
+  getRecentWorkouts,
   updatePersonalBest,
   getUnlockedAchievements,
   saveUnlockedAchievements,
@@ -28,6 +29,7 @@ export default function WorkoutPage({ profile, onProfileUpdate, onNavigate }) {
   const [isRegenerating, setIsRegenerating] = useState(false);
 
   const [personalBests, setPersonalBests] = useState({});
+  const [recentWorkouts, setRecentWorkouts] = useState([]);
   const [sessionData, setSessionData] = useState({});
   const [sessionXP, setSessionXP] = useState(0);
   const [flashXP, setFlashXP] = useState(null);
@@ -38,18 +40,22 @@ export default function WorkoutPage({ profile, onProfileUpdate, onNavigate }) {
   const [newPBs, setNewPBs] = useState([]);
   const flashTimeout = useRef(null);
 
-  // Load personal bests once on mount
+  // Load personal bests + recent history on mount
   useEffect(() => {
-    getPersonalBests().then(setPersonalBests).catch(() => {});
+    Promise.all([getPersonalBests(), getRecentWorkouts(7)])
+      .then(([pbs, recent]) => {
+        setPersonalBests(pbs);
+        setRecentWorkouts(recent);
+      })
+      .catch(() => {});
   }, []);
 
   const loadWorkout = async (force = false) => {
     setLoadingState('loading');
     setAiError(null);
     try {
-      // Attach PBs so the AI can calibrate weight suggestions
-      const profileWithPBs = { ...profile, _personalBests: personalBests };
-      const w = await generateAIWorkout(today, profileWithPBs, { force });
+      const profileWithData = { ...profile, _personalBests: personalBests, _recentWorkouts: recentWorkouts };
+      const w = await generateAIWorkout(today, profileWithData, { force });
       setWorkout(w);
       setLoadingState('ready');
     } catch (err) {

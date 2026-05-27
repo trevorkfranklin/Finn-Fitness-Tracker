@@ -75,7 +75,7 @@ Schema notes:
 - Always include dynamic-warmup as the first exercise`;
 }
 
-function buildUserPrompt(workoutType, phase, weekNumber, personalBests, playerName) {
+function buildUserPrompt(workoutType, phase, weekNumber, personalBests, playerName, recentWorkouts = []) {
   const typeDescriptions = {
     'lower-body': 'Lower Body Strength (squats, RDLs, lunges, goblet squats, core)',
     'upper-push': 'Upper Body Push + Agility (bench/shoulder pressing + ladder drills + shuttle runs)',
@@ -104,6 +104,14 @@ function buildUserPrompt(workoutType, phase, weekNumber, personalBests, playerNa
     .filter(Boolean)
     .join('\n');
 
+  const recentLines = recentWorkouts.slice(0, 7).map((log) => {
+    const exNames = Object.keys(log.exercises || {})
+      .map((id) => EXERCISES[id]?.name)
+      .filter(Boolean)
+      .join(', ');
+    return `  - ${log.date} (${log.workoutName || log.workoutType}): ${exNames}`;
+  }).join('\n');
+
   return `Generate a ${typeDescriptions[workoutType] || workoutType} workout for Finn.
 
 CONTEXT:
@@ -111,6 +119,8 @@ CONTEXT:
 - ${phaseDescriptions[phase] ?? phaseDescriptions[1]}
 
 ${pbLines ? `FINN'S PERSONAL BESTS (use these to set weight suggestions slightly above what he's done before, when safe):\n${pbLines}` : "No personal bests recorded yet — use conservative beginner weights and tell him today is where his records start."}
+
+${recentLines ? `RECENT WORKOUTS — pick DIFFERENT exercises than these wherever possible so each session feels fresh:\n${recentLines}` : "No previous workouts yet — this is his first session, keep it welcoming but exciting."}
 
 Make Finn feel like the hardest-working lineman in the gym. Address him by name. Be specific about what this workout is building toward — his first season on the line.`;
 }
@@ -149,6 +159,7 @@ export async function generateAIWorkout(date = new Date(), profile = null, { for
   // personalBests are passed in via profile augmentation by the caller,
   // or fetched here as a fallback (the caller should prefer passing them)
   const personalBests = profile?._personalBests ?? {};
+  const recentWorkouts = profile?._recentWorkouts ?? [];
 
   const systemPrompt = buildSystemPrompt();
   const userPrompt = buildUserPrompt(
@@ -156,7 +167,8 @@ export async function generateAIWorkout(date = new Date(), profile = null, { for
     progress.phase ?? 1,
     progress.weekNumber ?? 1,
     personalBests,
-    playerName
+    playerName,
+    recentWorkouts
   );
 
   const { data, error } = await supabase.functions.invoke('generate-workout', {
