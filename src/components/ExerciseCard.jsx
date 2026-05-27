@@ -110,6 +110,19 @@ export default function ExerciseCard({ workoutExercise, onSetComplete, sessionSe
             {workoutExercise.notes && (
               <p className="text-slate-400 text-xs mt-1 italic">{workoutExercise.notes}</p>
             )}
+            {exDef.videoUrl && (
+              <a
+                href={exDef.videoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 mt-2 text-red-400 hover:text-red-300 text-xs font-semibold transition-colors"
+              >
+                <svg className="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 24 24">
+                  <path d="M21.8 8s-.2-1.4-.8-2c-.8-.8-1.6-.8-2-.9C16.8 5 12 5 12 5s-4.8 0-7 .1c-.4.1-1.2.1-2 .9-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.8.8 1.8.8 2.2.8C6.4 19 12 19 12 19s4.8 0 7-.2c.4-.1 1.2-.1 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5C22 9.6 21.8 8 21.8 8zM9.8 14.5V9l5.4 2.8-5.4 2.7z"/>
+                </svg>
+                Watch how to do this
+              </a>
+            )}
           </div>
 
           {/* Set rows */}

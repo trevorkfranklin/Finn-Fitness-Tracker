@@ -10,6 +10,7 @@ export const EXERCISES = {
     isTimed: true,
     unit: 'min',
     tip: 'Leg swings, arm circles, high knees, butt kicks, hip circles. Get that blood pumping and joints loose!',
+    videoUrl: 'https://www.youtube.com/watch?v=KkcmTCvNC4c',
   },
 
   // LOWER BODY STRENGTH
@@ -22,6 +23,7 @@ export const EXERCISES = {
     hasWeight: true,
     unit: 'reps',
     tip: 'Feet shoulder-width, chest tall, squat until thighs are parallel. Drive through your heels like you\'re pushing the Earth away!',
+    videoUrl: 'https://www.youtube.com/watch?v=iAcRGCsG_PY',
   },
   'barbell-rdl': {
     id: 'barbell-rdl',
@@ -32,6 +34,7 @@ export const EXERCISES = {
     hasWeight: true,
     unit: 'reps',
     tip: 'Hinge at your hips, keep the bar close to your legs, feel the stretch in your hamstrings. Strong hips = strong lineman!',
+    videoUrl: 'https://www.youtube.com/watch?v=uhghy9pFIPY',
   },
   'kb-goblet-squat': {
     id: 'kb-goblet-squat',
@@ -43,6 +46,7 @@ export const EXERCISES = {
     defaultWeight: 30,
     unit: 'reps',
     tip: 'Hold the KB at your chest, elbows inside your knees at the bottom. Great for building a powerful stance!',
+    videoUrl: 'https://www.youtube.com/watch?v=sIX71MwChNg',
   },
   'db-lunges': {
     id: 'db-lunges',
@@ -54,6 +58,7 @@ export const EXERCISES = {
     perSide: true,
     unit: 'reps',
     tip: 'Tall posture, front knee tracks over your ankle. Keep your chin up — look where you\'re going!',
+    videoUrl: 'https://www.youtube.com/watch?v=_qSuiZ62vqI',
   },
 
   // UPPER BODY PUSH
@@ -66,6 +71,7 @@ export const EXERCISES = {
     hasWeight: true,
     unit: 'reps',
     tip: 'Arch slightly, feet flat on the floor, control the bar down to your chest. This builds your pushing power off the line!',
+    videoUrl: 'https://www.youtube.com/watch?v=7FyJdsXeta8',
   },
   'db-shoulder-press': {
     id: 'db-shoulder-press',
@@ -76,6 +82,7 @@ export const EXERCISES = {
     hasWeight: true,
     unit: 'reps',
     tip: 'Press straight up, don\'t lean back too far. Squeeze at the top! Big shoulders protect you AND make you look like a beast.',
+    videoUrl: 'https://www.youtube.com/watch?v=EUfHnvOYLDs',
   },
   'landmine-press': {
     id: 'landmine-press',
@@ -87,6 +94,7 @@ export const EXERCISES = {
     perSide: true,
     unit: 'reps',
     tip: 'Staggered stance, press in an arc. This one is great for shoulder health — critical for a lineman taking hits all season!',
+    videoUrl: 'https://www.youtube.com/watch?v=3gYz0bLG-wY',
   },
   'db-lateral-raise': {
     id: 'db-lateral-raise',
@@ -97,6 +105,7 @@ export const EXERCISES = {
     hasWeight: true,
     unit: 'reps',
     tip: 'Slight bend in elbows, raise to shoulder height, slow on the way down. Wide shoulders coming in!',
+    videoUrl: 'https://www.youtube.com/watch?v=-hyAJdSFzT4',
   },
 
   // UPPER BODY PULL
@@ -110,6 +119,7 @@ export const EXERCISES = {
     perSide: true,
     unit: 'reps',
     tip: 'Hinge forward 45°, pull your elbow to your hip. Squeeze your back hard at the top. A strong back keeps you safe in the trenches!',
+    videoUrl: 'https://www.youtube.com/watch?v=vhSH7vuOp-M',
   },
   'smith-row': {
     id: 'smith-row',
@@ -120,6 +130,7 @@ export const EXERCISES = {
     hasWeight: true,
     unit: 'reps',
     tip: 'Keep your back FLAT and chest up. Drive your elbows back, not up. Back strength = the foundation of everything!',
+    videoUrl: 'https://www.youtube.com/watch?v=ZFNLCpj8e-o',
   },
   'db-curl': {
     id: 'db-curl',
@@ -130,6 +141,7 @@ export const EXERCISES = {
     hasWeight: true,
     unit: 'reps',
     tip: 'Elbows pinned at your sides, full range of motion every rep. No swinging! Control the weight and FEEL it working.',
+    videoUrl: 'https://www.youtube.com/watch?v=AynDk444XZ4',
   },
   'db-tricep-ext': {
     id: 'db-tricep-ext',
@@ -140,6 +152,7 @@ export const EXERCISES = {
     hasWeight: true,
     unit: 'reps',
     tip: 'Keep elbows close to your head, lower slow, press up strong. Strong triceps = powerful push-off the snap!',
+    videoUrl: 'https://www.youtube.com/watch?v=v1qDINLCb8Q',
   },
 
   // POWER
@@ -153,6 +166,7 @@ export const EXERCISES = {
     defaultWeight: 30,
     unit: 'reps',
     tip: 'Snap your hips FORWARD at the top — power from your hips, not your arms. This builds the explosive burst you need at the snap!',
+    videoUrl: 'https://www.youtube.com/watch?v=6ggi1bqBGeg',
   },
   'landmine-squat-press': {
     id: 'landmine-squat-press',
@@ -164,6 +178,7 @@ export const EXERCISES = {
     perSide: true,
     unit: 'reps',
     tip: 'Squat deep, then drive up and press in ONE smooth explosive motion. This is total body power — exactly what linemen need!',
+    videoUrl: 'https://www.youtube.com/watch?v=0oJsNm_MreY',
   },
   'db-jump-squat': {
     id: 'db-jump-squat',
@@ -175,6 +190,7 @@ export const EXERCISES = {
     defaultWeight: 10,
     unit: 'reps',
     tip: 'Squat down, then EXPLODE up! Land soft with bent knees. This builds the burst you\'ll use at every single snap!',
+    videoUrl: 'https://www.youtube.com/watch?v=7qPVEUQ6vE8',
   },
 
   // CORE
@@ -188,6 +204,7 @@ export const EXERCISES = {
     isTimed: true,
     unit: 'sec',
     tip: 'Body like a steel beam! Hips level, breathe steadily. A solid core is your armor on every play.',
+    videoUrl: 'https://www.youtube.com/watch?v=A2b2EmIg0dA',
   },
   'dead-bug': {
     id: 'dead-bug',
@@ -198,6 +215,7 @@ export const EXERCISES = {
     hasWeight: false,
     unit: 'reps',
     tip: 'Lower back GLUED to the floor the entire time. Go slow, breathe out as you extend. This builds the core stability that protects your spine!',
+    videoUrl: 'https://www.youtube.com/watch?v=JrcoGEZn6L4',
   },
   'russian-twist': {
     id: 'russian-twist',
@@ -209,6 +227,7 @@ export const EXERCISES = {
     defaultWeight: 10,
     unit: 'reps',
     tip: 'Lean back slightly, feet up, rotate fully side to side. Touch the floor each rep. Rotational strength wins the line battle!',
+    videoUrl: 'https://www.youtube.com/watch?v=NrBUdmJSTXk',
   },
 
   // CONDITIONING
@@ -221,6 +240,7 @@ export const EXERCISES = {
     hasWeight: false,
     unit: 'meters',
     tip: 'Legs FIRST, then lean back and pull. Drive hard, recover easy. Rows build your whole engine — legs, back, lungs!',
+    videoUrl: 'https://www.youtube.com/watch?v=Cs9RhLMzHHk',
   },
   'treadmill-sprint': {
     id: 'treadmill-sprint',
@@ -232,6 +252,7 @@ export const EXERCISES = {
     isTimed: true,
     unit: 'sec',
     tip: 'All-out effort for the sprint, walk it out on recovery. Short explosive bursts — just like covering ground on every play!',
+    videoUrl: 'https://www.youtube.com/watch?v=OJmj8Jz2nu4',
   },
   'treadmill-jog': {
     id: 'treadmill-jog',
@@ -243,6 +264,7 @@ export const EXERCISES = {
     isTimed: true,
     unit: 'min',
     tip: 'Comfortable pace — you should be able to talk. This is your warm-up or recovery. Don\'t skip it!',
+    videoUrl: 'https://www.youtube.com/watch?v=ufhM_9eLU-s',
   },
   'mountain-climbers': {
     id: 'mountain-climbers',
@@ -253,6 +275,7 @@ export const EXERCISES = {
     hasWeight: false,
     unit: 'reps',
     tip: 'Fast feet, stable hips! Drive each knee to your chest. This trains your core and cardio at the same time — efficiency!',
+    videoUrl: 'https://www.youtube.com/watch?v=T_BvreyYL0w',
   },
   'bear-crawls': {
     id: 'bear-crawls',
@@ -263,6 +286,7 @@ export const EXERCISES = {
     hasWeight: false,
     unit: 'yards',
     tip: 'Stay low, knees just off the floor, move opposite arm and leg. Linemen use this stance every single play — master it!',
+    videoUrl: 'https://www.youtube.com/watch?v=vIb3_6Qvt64',
   },
 
   // AGILITY
@@ -275,6 +299,7 @@ export const EXERCISES = {
     hasWeight: false,
     unit: 'passes',
     tip: 'Eyes UP, not on the ladder! Quick feet, pump your arms. This trains your feet to move without thinking.',
+    videoUrl: 'https://www.youtube.com/watch?v=5phndei4CCo',
   },
   'ladder-highknees': {
     id: 'ladder-highknees',
@@ -285,6 +310,7 @@ export const EXERCISES = {
     hasWeight: false,
     unit: 'passes',
     tip: 'Drive your knees UP, stay light on your feet. This builds first-step quickness — the difference-maker for linemen!',
+    videoUrl: 'https://www.youtube.com/watch?v=P5YVtrSNbs0',
   },
   'ladder-lateral': {
     id: 'ladder-lateral',
@@ -295,6 +321,7 @@ export const EXERCISES = {
     hasWeight: false,
     unit: 'passes',
     tip: 'Stay low in your athletic stance, move your feet FAST. Linemen move sideways constantly — this is your edge!',
+    videoUrl: 'https://www.youtube.com/watch?v=axRUUCXP5vg',
   },
   'cone-5105': {
     id: 'cone-5105',
@@ -305,6 +332,7 @@ export const EXERCISES = {
     hasWeight: false,
     unit: 'reps',
     tip: 'Sprint 5 yards, plant hard, sprint 10, plant, sprint 5 back. Stay LOW on your turns. This is THE lineman agility test!',
+    videoUrl: 'https://www.youtube.com/watch?v=873enchzUKw',
   },
   'cone-tdrill': {
     id: 'cone-tdrill',
@@ -315,6 +343,7 @@ export const EXERCISES = {
     hasWeight: false,
     unit: 'reps',
     tip: 'Sprint forward, shuffle left, shuffle right, shuffle back, backpedal. LOW HIPS the whole way! Speed + control = elite lineman.',
+    videoUrl: 'https://www.youtube.com/watch?v=MEuT0aRco9I',
   },
   'hurdle-steps': {
     id: 'hurdle-steps',
@@ -325,5 +354,6 @@ export const EXERCISES = {
     hasWeight: false,
     unit: 'passes',
     tip: 'Drive your knees high over each hurdle. Hip flexibility is a secret weapon for linemen — more mobility = better movement!',
+    videoUrl: 'https://www.youtube.com/watch?v=dstMG84PAl0',
   },
 };
