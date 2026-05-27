@@ -184,7 +184,7 @@ function SetRow({ setNumber, targetReps, set, exDef, workoutExercise, pb, onComp
         </div>
         <span className="text-slate-300 font-semibold text-sm">Set {setNumber}</span>
         <span className="text-white font-bold">
-          {isTimed ? formatDuration(set.reps) : `${set.reps} reps`}
+          {isTimed ? formatDuration(set.reps) : `${set.reps} ${exDef.unit || 'reps'}`}
           {hasWeight && set.weight ? ` × ${set.weight} lbs` : ''}
         </span>
         {isNewPB && (
@@ -210,7 +210,7 @@ function SetRow({ setNumber, targetReps, set, exDef, workoutExercise, pb, onComp
           type="number"
           inputMode="numeric"
           className="input-field"
-          placeholder={isTimed ? formatDuration(targetReps) : `${targetReps} reps`}
+          placeholder={isTimed ? formatDuration(targetReps) : `${targetReps} ${exDef.unit || 'reps'}`}
           value={reps}
           onChange={(e) => setReps(e.target.value)}
           onFocus={(e) => e.target.select()}
