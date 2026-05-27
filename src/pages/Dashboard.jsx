@@ -38,8 +38,8 @@ export default function Dashboard({ profile, onNavigate }) {
       {/* Header */}
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="font-display text-4xl text-white leading-none tracking-wide">GRIDIRON</h1>
-          <h1 className="font-display text-4xl text-emerald-400 leading-none tracking-wide">GAINS</h1>
+          <h1 className="font-display text-4xl text-white leading-none tracking-wide">FINN'S FITNESS</h1>
+          <h1 className="font-display text-4xl text-emerald-400 leading-none tracking-wide">TRACKER</h1>
           <p className="text-slate-400 text-sm mt-1">{formatDate(today)}</p>
         </div>
         <div className="text-right">

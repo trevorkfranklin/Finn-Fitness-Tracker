@@ -76,7 +76,7 @@ function AppLoadingScreen() {
     <div className="min-h-screen bg-slate-950 flex items-center justify-center">
       <div className="text-center">
         <div className="w-16 h-16 rounded-full border-4 border-slate-700 border-t-emerald-500 animate-spin mx-auto mb-4" />
-        <h2 className="font-display text-3xl text-white">GRIDIRON GAINS</h2>
+        <h2 className="font-display text-3xl text-white">FINN'S FITNESS TRACKER</h2>
         <p className="text-slate-400 mt-2">Loading your training data...</p>
       </div>
     </div>
@@ -107,7 +107,7 @@ function SetupScreen({ onComplete }) {
   const steps = [
     {
       heading: 'WELCOME TO',
-      subheading: 'GRIDIRON GAINS',
+      subheading: 'FINN'S FITNESS TRACKER',
       body: 'Your personal football training app. Built for the linemen who do the dirty work and make every play possible.',
       cta: "LET'S GO!",
     },
