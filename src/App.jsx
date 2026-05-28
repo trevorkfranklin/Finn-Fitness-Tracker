@@ -4,6 +4,7 @@ import Dashboard from './pages/Dashboard.jsx';
 import WorkoutPage from './pages/WorkoutPage.jsx';
 import HistoryPage from './pages/HistoryPage.jsx';
 import AchievementsPage from './pages/AchievementsPage.jsx';
+import LeaderboardPage from './pages/LeaderboardPage.jsx';
 import { getProfile, createProfile } from './utils/db.js';
 import { isConfigured } from './lib/supabase.js';
 
@@ -65,6 +66,7 @@ export default function App() {
         )}
         {page === 'history' && <HistoryPage profile={profile} />}
         {page === 'achievements' && <AchievementsPage profile={profile} />}
+        {page === 'leaderboard' && <LeaderboardPage profile={profile} />}
       </div>
       <NavBar currentPage={page} onNavigate={setPage} />
     </div>

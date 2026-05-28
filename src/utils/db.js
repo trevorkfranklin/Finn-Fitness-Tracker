@@ -181,6 +181,23 @@ export async function updatePersonalBest(exerciseId, { maxWeight, maxReps }, cur
   if (error) console.error('updatePersonalBest:', error);
 }
 
+// ── Leaderboard ────────────────────────────────────────────────────────────
+
+export async function getLeaderboard() {
+  const { data, error } = await supabase
+    .from('profiles')
+    .select('id, name, total_xp, current_streak, workouts_completed')
+    .order('total_xp', { ascending: false });
+  if (error) throw error;
+  return (data ?? []).map((row) => ({
+    id: row.id,
+    name: row.name,
+    totalXP: row.total_xp ?? 0,
+    currentStreak: row.current_streak ?? 0,
+    workoutsCompleted: row.workouts_completed ?? 0,
+  }));
+}
+
 // ── Achievements ───────────────────────────────────────────────────────────
 
 export async function getUnlockedAchievements() {
