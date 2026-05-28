@@ -4,7 +4,7 @@ import { getWorkoutForDate, getProgramProgress, formatDate, getPhaseLabel } from
 import { getWorkoutLog, getCompletedDates } from '../utils/db.js';
 import { EXERCISES } from '../data/exercises.js';
 
-export default function Dashboard({ profile, onNavigate }) {
+export default function Dashboard({ profile, onNavigate, onSignOut }) {
   const today = useMemo(() => new Date(), []);
   const todayStr = today.toISOString().split('T')[0];
   const workout = useMemo(() => getWorkoutForDate(today), [today]);
@@ -43,7 +43,14 @@ export default function Dashboard({ profile, onNavigate }) {
           <p className="text-slate-400 text-sm mt-1">{formatDate(today)}</p>
         </div>
         <div className="text-right">
-          <p className="text-white font-black text-2xl">{profile?.name || 'Athlete'}</p>
+          <div className="flex items-center justify-end gap-2">
+            <p className="text-white font-black text-2xl">{profile?.name || 'Athlete'}</p>
+            <button onClick={onSignOut} title="Switch player" className="text-slate-600 hover:text-slate-400 transition-colors mt-0.5">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+            </button>
+          </div>
           {(profile?.currentStreak || 0) > 0 && (
             <div className="flex items-center justify-end gap-1 mt-1">
               <span className="text-orange-400 font-black">{profile.currentStreak}</span>

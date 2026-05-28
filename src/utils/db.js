@@ -3,12 +3,37 @@ import { supabase } from '../lib/supabase.js';
 const PLAYER_ID_KEY = 'gg_player_id';
 
 export function getPlayerId() {
-  let id = localStorage.getItem(PLAYER_ID_KEY);
-  if (!id) {
-    id = crypto.randomUUID();
-    localStorage.setItem(PLAYER_ID_KEY, id);
+  return localStorage.getItem(PLAYER_ID_KEY);
+}
+
+export function clearPlayerId() {
+  localStorage.removeItem(PLAYER_ID_KEY);
+}
+
+export async function findOrCreateProfileByName(firstName, lastName) {
+  const fullName = `${firstName.trim()} ${lastName.trim()}`;
+
+  const { data: existing, error: lookupErr } = await supabase
+    .from('profiles')
+    .select('*')
+    .ilike('name', fullName)
+    .maybeSingle();
+  if (lookupErr) throw lookupErr;
+
+  if (existing) {
+    localStorage.setItem(PLAYER_ID_KEY, existing.id);
+    return rowToProfile(existing);
   }
-  return id;
+
+  const id = crypto.randomUUID();
+  localStorage.setItem(PLAYER_ID_KEY, id);
+  const { data, error } = await supabase
+    .from('profiles')
+    .insert({ id, name: fullName })
+    .select()
+    .single();
+  if (error) throw error;
+  return rowToProfile(data);
 }
 
 // ── Transform helpers ──────────────────────────────────────────────────────
